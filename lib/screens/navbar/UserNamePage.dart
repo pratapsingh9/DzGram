@@ -21,16 +21,12 @@ class _UsernamePageState extends State<UsernamePage>
 
   late TabController _tabBarController;
 
-
-
   final List<List<String>> images = [
     [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643612.jpg",
-      "https://w0.peakpx.com/wallpaper/349/195/HD-wallpaper-kylie-jenner.jpg"
+      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643612.jpg"
     ],
     [
       "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643816.jpg",
-      "https://w0.peakpx.com/wallpaper/627/63/HD-wallpaper-kylie-jenner-vogue-hk-kylie-jenner-celebrities-girls-model-hoot-red-dress.jpg"
     ],
     [
       "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643815.jpg"
@@ -58,9 +54,8 @@ class _UsernamePageState extends State<UsernamePage>
     ],
     [
       "https://c4.wallpaperflare.com/wallpaper/531/15/711/women-celebrity-brunette-no-time-to-die-2020-hd-wallpaper-preview.jpg"
-    ],[
-      "https://cdn.mos.cms.futurecdn.net/BUeymwwSwpe23zsZUVCLb9-1920-80.jpg"
     ],
+    ["https://cdn.mos.cms.futurecdn.net/BUeymwwSwpe23zsZUVCLb9-1920-80.jpg"],
     [
       "https://content4.promiflash.de/article-images/video_1080/kylie-jenner-posiert-sexy-5.jpg"
     ],
@@ -70,13 +65,13 @@ class _UsernamePageState extends State<UsernamePage>
     [
       'https://st1.uvnimg.com/04/05/6f5724c54e5b949dfd5f503fb0b1/thumb-kylie-jenner-2022.jpg'
     ],
-    [
-      "https://i.redd.it/dukx8ilupck91.jpg"
-    ],
+    ["https://i.redd.it/dukx8ilupck91.jpg"],
     [
       'https://avatars.mds.yandex.net/i?id=d2c85146fc5f41f60df5f5cf98868dc6e4bdff44-10354084-images-thumbs&ref=rim&n=33&w=480&h=252'
     ],
-    ['https://avatars.mds.yandex.net/i?id=2c3dd34afc88671a350c479fb186eea9-4623308-images-thumbs&ref=rim&n=33&w=300&h=300'],
+    [
+      'https://avatars.mds.yandex.net/i?id=2c3dd34afc88671a350c479fb186eea9-4623308-images-thumbs&ref=rim&n=33&w=300&h=300'
+    ],
     [
       "https://www.thesun.co.uk/wp-content/uploads/2022/09/kylie-busty-op-jl.jpg?1663924056&strip=all&quality=100&w=1920&h=1080&crop=1"
     ],
@@ -141,7 +136,7 @@ class _UsernamePageState extends State<UsernamePage>
               children: [
                 TextField(
                   controller: _linkController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Enter image URL',
                   ),
                 ),
@@ -214,53 +209,48 @@ class _UsernamePageState extends State<UsernamePage>
     );
   }
 
- Widget _buildPostGrid() {
-  if (images.isEmpty) {
-    return Center(
-      child: Text("No Images Found"),
-    );
-  } else {
-    return GridView.builder(
-      padding: const EdgeInsets.all(8.0),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0,
-      ),
-      itemCount: images.length,
-      itemBuilder: (context, index) {
-        if (images[index].isEmpty) return Container(); // Handle empty images
-        String tag = 'image$index';
-        Widget imageWidget = CachedNetworkImage(
-          imageUrl: images[index][0],
-          fit: BoxFit.cover,
-          placeholder: (context, url) => CircularProgressIndicator(),
-          errorWidget: (context, url, error) => Icon(Icons.error),
-        );
-
-        // Wrap with Hero only if it's a single image
-        if (images[index].length == 1) {
-          imageWidget = Hero(tag: tag, child: imageWidget);
-        }
-
-        return GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PostScreen(imageUrls: images[index], tag: tag),
-              ),
-            );
-          },
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(4.0),
-            child: imageWidget,
-          ),
-        );
-      },
-    );
+  Widget _buildPostGrid() {
+    if (images.isEmpty) {
+      return const Center(
+        child: Text("No Images Found"),
+      );
+    } else {
+      return GridView.builder(
+        padding: const EdgeInsets.all(8.0),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 8.0,
+        ),
+        itemCount: images.length,
+        itemBuilder: (context, index) {
+          if (images[index].isEmpty) return Container(); // Handle empty images
+          String tag = 'image$index';
+          Widget imageWidget = CachedNetworkImage(
+            imageUrl: images[index][0],
+            fit: BoxFit.cover,
+          );
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PostScreen(
+                    imageUrls: images[index],
+                    tag: tag,
+                  ),
+                ),
+              );
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4.0),
+              child: Hero(tag: tag, child: imageWidget),
+            ),
+          );
+        },
+      );
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -320,27 +310,19 @@ class _UsernamePageState extends State<UsernamePage>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Profile Picture
+                    const AvatarWidgetCustom(),
+
+                    // Stats (Posts, Followers, Following)
                     Expanded(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          AvatarWidgetCustom(),
-                          Row(
-                            children: [
-                              _statsPosition(images.length.toString(), "Posts"),
-                              const SizedBox(
-                                width: 30,
-                              ),
-                              _statsPosition("0", "Followers"),
-                              const SizedBox(
-                                width: 30,
-                              ),
-                              _statsPosition("0", "Following"),
-                              const SizedBox(width: 20),
-                            ],
-                          ),
+                          _statsPosition(images.length.toString(), "Posts"),
+                          _statsPosition("0", "Followers"),
+                          _statsPosition("0", "Following"),
                         ],
                       ),
                     ),
@@ -404,7 +386,7 @@ class _UsernamePageState extends State<UsernamePage>
                   controller: _tabBarController,
                   children: [
                     _buildPostGrid(),
-                    Center(child: Text('Profile Tab Content')),
+                    const Center(child: Text('Profile Tab Content')),
                   ],
                 ),
               ),

@@ -120,7 +120,7 @@ class _HomescreenState extends State<Homescreen> {
                   shape: BoxShape.circle,
                   image: const DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage('assets/profile_picture.jpg'),
+                    image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVJF-1QuuYg_qNMC-z3a5pecVyA4L9-f8Ibg&s'),
                   ),
                   border: Border.all(
                     color: _selectedIndex == 3

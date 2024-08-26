@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instagaramclone/screens/commentSection.dart';
+
 import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
-import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart'; // Import the package
 
 class PostScreen extends StatefulWidget {
   final List<String> imageUrls; // List of image URLs
@@ -47,18 +47,17 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        elevation: Theme.of(context).appBarTheme.elevation,
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 0,
         leading: IconButton(
-          icon:
-              Icon(Icons.arrow_back, color: Theme.of(context).iconTheme.color),
+          icon:  Icon(Icons.arrow_back, color: Theme.of(context).textTheme.bodyLarge?.color),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         title: Text(
           'Post',
-          style: Theme.of(context).appBarTheme.titleTextStyle,
+          style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color),
         ),
       ),
       body: Column(
@@ -72,17 +71,16 @@ class _PostScreenState extends State<PostScreen> {
                   backgroundColor: Colors.grey,
                   radius: 20,
                   backgroundImage: CachedNetworkImageProvider(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyQ79bPpRUH4lrYX-DYfIqhA7B-deDNumc4A&s'),
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEW_Jgyi6ooEMPjdwuAHg4E5CpLBqlL6ul-A&s'),
                 ),
               ),
               const SizedBox(width: 10),
               Text(
                 "Pratap Singh",
                 style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
-                ),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).textTheme.bodyLarge?.color),
               ),
               const Spacer(),
               GestureDetector(
@@ -100,22 +98,13 @@ class _PostScreenState extends State<PostScreen> {
           const SizedBox(height: 15),
           Expanded(
             child: widget.imageUrls.length == 1
-                ? Hero(
-                    tag: widget.tag,
-                    child: ZoomOverlay(
-                      minScale: 0.9,
-                      maxScale: 4.0,
-                      child: CachedNetworkImage(
-                        imageUrl: widget.imageUrls[0],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                        placeholder: (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
-                    ),
+                ? CachedNetworkImage(
+                    imageUrl: widget.imageUrls[0],
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
+                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                   )
                 : Stack(
                     children: [
@@ -123,45 +112,52 @@ class _PostScreenState extends State<PostScreen> {
                         controller: _pageController,
                         itemCount: widget.imageUrls.length,
                         itemBuilder: (context, index) {
-                          return ZoomOverlay(
-                            minScale: 0.5,
-                            maxScale: 4.0,
-                            child: CachedNetworkImage(
-                              imageUrl: widget.imageUrls[index],
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: double.infinity,
-                              placeholder: (context, url) => const Center(
-                                  child: CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error),
-                            ),
+                          return CachedNetworkImage(
+                            imageUrl: widget.imageUrls[index],
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                            placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
                           );
                         },
                       ),
-                      // ... (keep the existing PageViewDotIndicator code)
+                      Positioned(
+                        bottom: 20,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: PageViewDotIndicator(
+                            count: widget.imageUrls.length,
+                            currentItem: _currentPage,
+                            selectedColor: Colors.blue,
+                            size: Size(5, 8),
+                            unselectedColor: Colors.grey,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
           ),
           const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                FaIcon(
+                 FaIcon(
                   FontAwesomeIcons.heart,
                   color: Theme.of(context).iconTheme.color,
                 ),
                 const SizedBox(width: 21),
                 GestureDetector(
                   onTap: _navigateToComments,
-                  child: FaIcon(
+                  child:  FaIcon(
                     FontAwesomeIcons.comment,
                     color: Theme.of(context).iconTheme.color,
                   ),
                 ),
                 const Spacer(),
-                Icon(
+                 Icon(
                   Icons.bookmark_outline,
                   color: Theme.of(context).iconTheme.color,
                   size: 28,
@@ -171,7 +167,7 @@ class _PostScreenState extends State<PostScreen> {
           ),
         ],
       ),
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).primaryColor,
     );
   }
 }

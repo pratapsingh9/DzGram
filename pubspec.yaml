@@ -49,6 +49,9 @@ dependencies:
   supabase_flutter: ^2.6.0
   zoom_pinch_overlay: ^1.4.3
   pinch_to_zoom_scrollable: ^0.1.2
+  photo_view: ^0.15.0
+  pinch_zoom_release_unzoom: ^1.0.3
+  insta_image_viewer: ^1.0.4
 
 dev_dependencies:
   flutter_test:

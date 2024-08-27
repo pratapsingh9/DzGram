@@ -17,7 +17,6 @@ class Comment {
   });
 }
 
-// Sample data
 final List<Comment> comments = [
   Comment(
     username: 'john_doe',
@@ -37,7 +36,6 @@ final List<Comment> comments = [
     profileImageUrl: 'https://example.com/profile3.jpg',
     timeAgo: '1d',
   ),
-  // Add more comments as needed
 ];
 
 class CommentsScreen extends StatelessWidget {
@@ -87,7 +85,8 @@ class CommentWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
-            backgroundImage: CachedNetworkImageProvider(comment.profileImageUrl),
+            backgroundImage:
+                CachedNetworkImageProvider(comment.profileImageUrl),
             radius: 20.0,
           ),
           const SizedBox(width: 10.0),
@@ -126,11 +125,13 @@ class CommentWidget extends StatelessWidget {
                   maxLines: 3, // Limit text to 3 lines
                 ),
                 const SizedBox(height: 8.0),
-               
               ],
             ),
           ),
-          Icon(Icons.favorite_outline , color: Colors.white,)
+          Icon(
+            Icons.favorite_outline,
+            color: Colors.white,
+          )
         ],
       ),
     );

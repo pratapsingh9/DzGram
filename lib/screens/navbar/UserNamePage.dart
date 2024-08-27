@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:instagaramclone/screens/LoginScreen.dart';
+
 import 'package:instagaramclone/screens/PostsFullScreen.dart';
 import 'package:instagaramclone/widgets/profileWidget.dart';
 
@@ -258,139 +258,180 @@ class _UsernamePageState extends State<UsernamePage>
 
     return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          elevation: 0,
-          title: Row(
-            children: [
-              Icon(
-                Icons.lock_outline,
-                color: Theme.of(context).iconTheme.color,
-                size: 20,
-              ),
-              const SizedBox(width: 10),
-              Text(
-                _username,
-                style: GoogleFonts.roboto(
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).appBarTheme.titleTextStyle?.color,
-                ),
-              ),
-              const SizedBox(width: 4),
-              GestureDetector(
-                child: Icon(
-                  Icons.keyboard_arrow_down,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-              )
-            ],
-          ),
-          actions: [
-            _addPostsButton(),
-            const SizedBox(width: 20),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
-              },
-              child: Icon(Icons.menu, color: Theme.of(context).iconTheme.color),
-            ),
-            const SizedBox(width: 10),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 25),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Profile Picture
-                    const AvatarWidgetCustom(),
-
-                    // Stats (Posts, Followers, Following)
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          _statsPosition(images.length.toString(), "Posts"),
-                          _statsPosition("0", "Followers"),
-                          _statsPosition("0", "Following"),
-                        ],
+        // appBar: AppBar(
+        //   automaticallyImplyLeading: false,
+        //   backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        //   elevation: 0,
+        //   title: Row(
+        //     children: [
+        //       Icon(
+        //         Icons.lock_outline,
+        //         color: Theme.of(context).iconTheme.color,
+        //         size: 20,
+        //       ),
+        //       const SizedBox(width: 10),
+        //       Text(
+        //         _username,
+        //         style: GoogleFonts.roboto(
+        //           fontSize: 22.0,
+        //           fontWeight: FontWeight.w600,
+        //           color: Theme.of(context).appBarTheme.titleTextStyle?.color,
+        //         ),
+        //       ),
+        //       const SizedBox(width: 4),
+        //       GestureDetector(
+        //         child: Icon(
+        //           Icons.keyboard_arrow_down,
+        //           color: Theme.of(context).iconTheme.color,
+        //         ),
+        //       )
+        //     ],
+        //   ),
+        //   actions: [
+        //     _addPostsButton(),
+        //     const SizedBox(width: 20),
+        //     GestureDetector(
+        //       onTap: () {
+        //         Navigator.push(
+        //           context,
+        //           MaterialPageRoute(builder: (context) => LoginScreen()),
+        //         );
+        //       },
+        //       child: Icon(Icons.menu, color: Theme.of(context).iconTheme.color),
+        //     ),
+        //     const SizedBox(width: 10),
+        //   ],
+        // ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.lock_outline,
+                        color: Theme.of(context).iconTheme.color,
+                        size: 20,
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Pratap",
-                      style: GoogleFonts.roboto(
-                        fontSize: 19,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                      const SizedBox(width: 10),
+                      Text(
+                        _username,
+                        style: GoogleFonts.roboto(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Decide your habits and your habits will decide your future",
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: Theme.of(context).textTheme.bodyMedium?.color,
+                      const SizedBox(width: 4),
+                      GestureDetector(
+                        child: Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                child: TabBar(
-                  controller: _tabBarController,
-                  indicatorColor: Colors.blue,
-                  indicator: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.transparent,
+                      const Spacer(),
+                      _addPostsButton(),
+                      const SizedBox(width: 20),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Icon(Icons.menu,
+                            color: Theme.of(context).iconTheme.color),
                       ),
-                    ),
+                      const SizedBox(width: 10),
+                    ],
                   ),
-                  tabs: [
-                    Tab(
-                        icon: Icon(Icons.grid_on,
-                            color: Theme.of(context).iconTheme.color)),
-                    Tab(
-                        icon: Icon(Icons.person_pin,
-                            color: Theme.of(context).iconTheme.color)),
-                  ],
                 ),
-              ),
-              // To allow the grid to take up the remaining space
-              SizedBox(
-                height: MediaQuery.of(context).size.height -
-                    300, // Adjust this value
-                child: TabBarView(
-                  controller: _tabBarController,
-                  children: [
-                    _buildPostGrid(),
-                    const Center(child: Text('Profile Tab Content')),
-                  ],
+
+                const SizedBox(height: 25),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Profile Picture
+                      const AvatarWidgetCustom(),
+
+                      // Stats (Posts, Followers, Following)
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            _statsPosition(images.length.toString(), "Posts"),
+                            _statsPosition("0", "Followers"),
+                            _statsPosition("0", "Following"),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Pratap",
+                        style: GoogleFonts.roboto(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        "Decide your habits and your habits will decide your future",
+                        style: GoogleFonts.aBeeZee(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).textTheme.bodyMedium?.color,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  child: TabBar(
+                    controller: _tabBarController,
+                    indicatorColor: Colors.blue,
+                    indicator: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
+                    ),
+                    tabs: [
+                      Tab(
+                          icon: Icon(Icons.grid_on,
+                              color: Theme.of(context).iconTheme.color)),
+                      Tab(
+                          icon: Icon(Icons.person_pin,
+                              color: Theme.of(context).iconTheme.color)),
+                    ],
+                  ),
+                ),
+                // To allow the grid to take up the remaining space
+                SizedBox(
+                  height: MediaQuery.of(context).size.height -
+                      300, // Adjust this value
+                  child: TabBarView(
+                    controller: _tabBarController,
+                    children: [
+                      _buildPostGrid(),
+                      const Center(child: Text('Profile Tab Content')),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }

@@ -52,6 +52,11 @@ dependencies:
   photo_view: ^0.15.0
   pinch_zoom_release_unzoom: ^1.0.3
   insta_image_viewer: ^1.0.4
+  insta_like_button: ^0.1.1
+  like_button: ^2.0.5
+  audioplayers: ^5.2.1
+  image_picker: ^1.1.2
+  flutter_native_splash: ^2.4.1
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +83,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/instagram.jpg
+    - assets/dark.jpg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

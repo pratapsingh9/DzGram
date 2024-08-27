@@ -326,6 +326,70 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
+  flutter_hooks:
+    dependency: transitive
+    description:
+      name: flutter_hooks
+      sha256: cde36b12f7188c85286fba9b38cc5a902e7279f36dd676967106c041dc9dde70
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.5"
+  flutter_inappwebview:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview
+      sha256: "3e9a443a18ecef966fb930c3a76ca5ab6a7aafc0c7b5e14a4a850cf107b09959"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0"
+  flutter_inappwebview_android:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview_android
+      sha256: d247f6ed417f1f8c364612fa05a2ecba7f775c8d0c044c1d3b9ee33a6515c421
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.13"
+  flutter_inappwebview_internal_annotations:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview_internal_annotations
+      sha256: "5f80fd30e208ddded7dbbcd0d569e7995f9f63d45ea3f548d8dd4c0b473fb4c8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
+  flutter_inappwebview_ios:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview_ios
+      sha256: f363577208b97b10b319cd0c428555cd8493e88b468019a8c5635a0e4312bd0f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.13"
+  flutter_inappwebview_macos:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview_macos
+      sha256: b55b9e506c549ce88e26580351d2c71d54f4825901666bd6cfa4be9415bb2636
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.11"
+  flutter_inappwebview_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview_platform_interface
+      sha256: "545fd4c25a07d2775f7d5af05a979b2cac4fbf79393b0a7f5d33ba39ba4f6187"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.10"
+  flutter_inappwebview_web:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview_web
+      sha256: d8c680abfb6fec71609a700199635d38a744df0febd5544c5a020bd73de8ee07
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.8"
   flutter_keyboard_visibility:
     dependency: transitive
     description:
@@ -406,6 +470,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.1"
+  flutter_story_presenter:
+    dependency: "direct main"
+    description:
+      name: flutter_story_presenter
+      sha256: "86b23bbc4ad27a9488371b02a6e38f94729cbe08be31e8e36347567642ee7004"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -1189,6 +1261,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  video_player:
+    dependency: transitive
+    description:
+      name: video_player
+      sha256: e30df0d226c4ef82e2c150ebf6834b3522cf3f654d8e2f9419d376cdc071425d
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.9.1"
+  video_player_android:
+    dependency: transitive
+    description:
+      name: video_player_android
+      sha256: "101028b643a3b43ced72107aacdbc4d30d55365487751de001a36cf0d86038d1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.7.2"
+  video_player_avfoundation:
+    dependency: transitive
+    description:
+      name: video_player_avfoundation
+      sha256: d1e9a824f2b324000dc8fb2dcb2a3285b6c1c7c487521c63306cc5b394f68a7c
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.1"
+  video_player_platform_interface:
+    dependency: transitive
+    description:
+      name: video_player_platform_interface
+      sha256: "236454725fafcacf98f0f39af0d7c7ab2ce84762e3b63f2cbb3ef9a7e0550bc6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.2.2"
+  video_player_web:
+    dependency: transitive
+    description:
+      name: video_player_web
+      sha256: "6dcdd298136523eaf7dfc31abaf0dfba9aa8a8dbc96670e87e9d42b6f2caf774"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.2"
   vm_service:
     dependency: transitive
     description:

@@ -4,9 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:instagaramclone/models/PostModel.dart';
 import 'package:instagaramclone/screens/navbar/UserNamePage.dart';
 import 'package:instagaramclone/widgets/PostsScreens.dart';
-
 import 'package:shimmer/shimmer.dart';
-
 
 final List<PostModel> postsData = [
   PostModel(
@@ -21,24 +19,10 @@ final List<PostModel> postsData = [
       username: 'Pratap Singh',
       usernameurl:
           "https://images.pexels.com/photos/1716861/pexels-photo-1716861.jpeg"),
-  PostModel(
-      Imageurl:
-          "https://staticg.sportskeeda.com/editor/2023/08/3626c-16921875120044-1920.jpg?w=640",
-      username: "ps9",
-      usernameurl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbcn9WCT3O7yEHyqvnkfOFx8y2bLsf4OZlw&s"),
-  PostModel(
-      Imageurl:
-          "https://yt3.googleusercontent.com/8eGqQZxpSdVKFel6OBsW5orqJ1mC_2h_sPKbR4al6eqOM2rV-2ahi6FhEWT-L9PmWjgfhsJhSeY=s900-c-k-c0x00ffffff-no-rj",
-      username: "Shibu",
-      usernameurl:
-          "https://i.pinimg.com/736x/bf/95/34/bf953419d76bf747cba69b55e6e03957.jpg")
 ];
 
 class Homescreen extends StatefulWidget {
-  Homescreen({
-    super.key,
-  });
+  Homescreen({super.key});
 
   @override
   _HomescreenState createState() => _HomescreenState();
@@ -62,16 +46,12 @@ class _HomescreenState extends State<Homescreen> {
           _buildHomeScreen(),
           _buildSearchScreen(),
           _buildAddPostScreen(),
-          UsernamePage()
+          UsernamePage(),
         ],
       ),
       bottomNavigationBar: Container(
         width: double.infinity,
         height: 44,
-        decoration: BoxDecoration(
-            // Remove or set the border to null
-            // border: Border(top: BorderSide(color: Colors.grey.shade200)),
-            ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -120,7 +100,8 @@ class _HomescreenState extends State<Homescreen> {
                   shape: BoxShape.circle,
                   image: const DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVJF-1QuuYg_qNMC-z3a5pecVyA4L9-f8Ibg&s'),
+                    image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVJF-1QuuYg_qNMC-z3a5pecVyA4L9-f8Ibg&s'),
                   ),
                   border: Border.all(
                     color: _selectedIndex == 3

@@ -17,7 +17,7 @@ class PostScreen extends StatefulWidget {
 
 class _PostScreenState extends State<PostScreen>
     with SingleTickerProviderStateMixin {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int _currentPage = 0;
   bool fav = false;
   bool isLiked = false;
@@ -35,7 +35,7 @@ class _PostScreenState extends State<PostScreen>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 400),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.0, end: 1.5).animate(
@@ -51,7 +51,7 @@ class _PostScreenState extends State<PostScreen>
   }
 
   void _navigateToComments() {
-    // Implement navigation to comments screen
+    
   }
 
   void _handleDoubleTap() {
@@ -80,9 +80,9 @@ class _PostScreenState extends State<PostScreen>
       ),
       body: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           _buildUserInfo(),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Expanded(
             child: Stack(
               alignment: Alignment.center,
@@ -99,8 +99,9 @@ class _PostScreenState extends State<PostScreen>
               ],
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           _buildActionButtons(),
+          const SizedBox(height: 80,)
         ],
       ),
       backgroundColor: Theme.of(context).primaryColor,
@@ -119,7 +120,7 @@ class _PostScreenState extends State<PostScreen>
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEW_Jgyi6ooEMPjdwuAHg4E5CpLBqlL6ul-A&s'),
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
           "Pratap Singh",
           style: GoogleFonts.roboto(
@@ -128,7 +129,7 @@ class _PostScreenState extends State<PostScreen>
             color: Theme.of(context).textTheme.bodyLarge?.color,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         IconButton(
           icon: Icon(Icons.more_vert, color: Theme.of(context).iconTheme.color),
           onPressed: () {/* Add your logic here */},
@@ -206,7 +207,7 @@ class _PostScreenState extends State<PostScreen>
               color: Theme.of(context).iconTheme.color,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           GestureDetector(
             onTap: () {
               setState(() {

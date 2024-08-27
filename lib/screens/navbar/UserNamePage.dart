@@ -22,62 +22,7 @@ class _UsernamePageState extends State<UsernamePage>
   late TabController _tabBarController;
 
   final List<List<String>> images = [
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643612.jpg"
-    ],
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643816.jpg",
-    ],
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643815.jpg"
-    ],
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643611.jpg"
-    ],
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_168837643610.jpg"
-    ],
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_16883764344.jpg"
-    ],
-    [
-      "https://images.filmibeat.com/webp/ph-big/2023/07/kylie-jenner-latest-bold-glamorous-photoshoot-see-pics_16883764346.jpg"
-    ],
-    [
-      "https://hips.hearstapps.com/hmg-prod/images/450277671-17905884056993160-5935856470863618784-n-668abcc3c3b52.jpg?resize=980:*"
-    ],
-    [
-      "https://hips.hearstapps.com/hmg-prod/images/450247409-17905884080993160-5093121611261135526-n-668abced773be.jpg?resize=980:*"
-    ],
-    [
-      "https://c4.wallpaperflare.com/wallpaper/981/860/884/5bd14074846ec-wallpaper-preview.jpg"
-    ],
-    [
-      "https://c4.wallpaperflare.com/wallpaper/531/15/711/women-celebrity-brunette-no-time-to-die-2020-hd-wallpaper-preview.jpg"
-    ],
-    ["https://cdn.mos.cms.futurecdn.net/BUeymwwSwpe23zsZUVCLb9-1920-80.jpg"],
-    [
-      "https://content4.promiflash.de/article-images/video_1080/kylie-jenner-posiert-sexy-5.jpg"
-    ],
-    [
-      "https://www.thesun.co.uk/wp-content/uploads/2024/04/SC-Kylie-Backlash-Off-Plat-copy.jpg?strip=all&amp;quality=100&amp;w=1920&amp;h=1080&amp;crop=1"
-    ],
-    [
-      'https://st1.uvnimg.com/04/05/6f5724c54e5b949dfd5f503fb0b1/thumb-kylie-jenner-2022.jpg'
-    ],
     ["https://i.redd.it/dukx8ilupck91.jpg"],
-    [
-      'https://avatars.mds.yandex.net/i?id=d2c85146fc5f41f60df5f5cf98868dc6e4bdff44-10354084-images-thumbs&ref=rim&n=33&w=480&h=252'
-    ],
-    [
-      'https://avatars.mds.yandex.net/i?id=2c3dd34afc88671a350c479fb186eea9-4623308-images-thumbs&ref=rim&n=33&w=300&h=300'
-    ],
-    [
-      "https://www.thesun.co.uk/wp-content/uploads/2022/09/kylie-busty-op-jl.jpg?1663924056&strip=all&quality=100&w=1920&h=1080&crop=1"
-    ],
-    [
-      'https://avatars.mds.yandex.net/i?id=21e5fcf4cd551bf37699e7552229e004ca903219-12463617-images-thumbs&n=13'
-    ]
   ];
 
   @override

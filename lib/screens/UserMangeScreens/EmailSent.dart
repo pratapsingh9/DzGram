@@ -81,7 +81,7 @@ class _EmailSentScreenState extends State<EmailSentScreen> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Homescreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Homescreen()));
                     },
                     child: Container(
                       height: 60,
